@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tiko-downloader
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: TRUST_PROXY
+        value: "true"
